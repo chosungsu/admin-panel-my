@@ -6,8 +6,13 @@ from app.core.config import get_settings
 settings = get_settings()
 DATABASE_URL = settings["database_url"]
 
-engine = create_engine(DATABASE_URL, pool_pre_ping=True)
-SessionLocal = sessionmaker(bind=engine, autoflush=False, autocommit=False)
+# DATABASE_URL이 있을 때만 engine 생성
+if DATABASE_URL:
+    engine = create_engine(DATABASE_URL, pool_pre_ping=True)
+    SessionLocal = sessionmaker(bind=engine, autoflush=False, autocommit=False)
+else:
+    engine = None
+    SessionLocal = None
 
 
 def check_db() -> bool:

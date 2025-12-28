@@ -23,6 +23,8 @@ MAX_HEALTH_DAYS = 90
 
 
 def get_db():
+    if SessionLocal is None:
+        raise HTTPException(status_code=503, detail="Database not configured")
     db = SessionLocal()
     try:
         yield db
