@@ -1,0 +1,103 @@
+﻿@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --color-bg: #f7f7f8;
+  --color-text: #0f172a;
+  --color-muted: #6b7280;
+  --color-surface: #ffffff;
+  --color-surface-alt: #f8fafc;
+  --color-border: #e2e8f0;
+  --color-border-strong: #cbd5e1;
+  --color-accent: #2563eb;
+  --color-accent-weak: #dbeafe;
+  --color-success: #22c55e;
+  --color-warning: #f59e0b;
+  --color-danger: #ef4444;
+  --color-danger-text: #b91c1c;
+  --shadow-soft: 0 1px 3px rgba(15, 23, 42, 0.08);
+
+  --background: var(--color-bg);
+  --foreground: var(--color-text);
+  --card: var(--color-surface);
+  --card-foreground: var(--color-text);
+  --muted: var(--color-surface-alt);
+  --muted-foreground: var(--color-muted);
+  --border: var(--color-border);
+  --primary: var(--color-accent);
+  --primary-foreground: #ffffff;
+  --destructive: var(--color-danger);
+  --destructive-foreground: #ffffff;
+  --accent: var(--color-accent-weak);
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --color-bg: #0b1120;
+  --color-text: #f8fafc;
+  --color-muted: #94a3b8;
+  --color-surface: #111827;
+  --color-surface-alt: #0f172a;
+  --color-border: #1f2937;
+  --color-border-strong: #334155;
+  --color-accent: #60a5fa;
+  --color-accent-weak: rgba(96, 165, 250, 0.2);
+  --color-success: #22c55e;
+  --color-warning: #f59e0b;
+  --color-danger: #ef4444;
+  --color-danger-text: #fca5a5;
+  --shadow-soft: 0 1px 3px rgba(15, 23, 42, 0.4);
+
+  --background: var(--color-bg);
+  --foreground: var(--color-text);
+  --card: var(--color-surface);
+  --card-foreground: var(--color-text);
+  --muted: var(--color-surface-alt);
+  --muted-foreground: var(--color-muted);
+  --border: var(--color-border);
+  --primary: var(--color-accent);
+  --primary-foreground: #0f172a;
+  --destructive: var(--color-danger);
+  --destructive-foreground: #ffffff;
+  --accent: var(--color-accent-weak);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: "Plus Jakarta Sans", "Segoe UI", sans-serif;
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+button,
+input,
+select {
+  font-family: inherit;
+}
+
+#app {
+  height: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Hide scrollbars globally */
+* {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+*::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
+}

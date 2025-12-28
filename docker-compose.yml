@@ -1,0 +1,14 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    environment:
+      - DATABASE_URL=${DATABASE_URL}
+      - APP_ENV=${APP_ENV}
+      - LOG_LEVEL=${LOG_LEVEL}
+      - SERVICE_NAME=${SERVICE_NAME}
+      - NODE_ENV=production
+    restart: unless-stopped
