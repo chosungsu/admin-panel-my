@@ -88,7 +88,8 @@ select {
 
 #app {
   height: 100%;
-  min-height: 100vh;
+  min-height: 100vh; /* fallback for older browsers */
+  min-height: 100dvh; /* modern browsers - dynamic viewport height */
   overflow-x: hidden;
 }
 

@@ -1,5 +1,5 @@
 ﻿<template>
-  <div class="h-screen bg-background text-foreground overflow-hidden">
+  <div class="h-dvh bg-background text-foreground overflow-hidden">
     <Topbar
       title="Console"
       subtitle=""
@@ -7,7 +7,7 @@
       :selected-project-id="selectedProjectId"
       @project-change="setSelectedProject"
     />
-    <main class="flex min-h-0 flex-col gap-5 overflow-y-auto overflow-x-hidden px-8 py-4 scrollbar-hide" style="height: calc(100vh - 64px); margin-top: 64px; z-index: 40;">
+    <main class="flex min-h-0 flex-col gap-5 overflow-y-auto overflow-x-hidden px-8 py-4 scrollbar-hide" style="height: calc(100dvh - 64px); margin-top: 64px; z-index: 40;">
       <HealthControls
         :latest-sample="latestSample"
         :auto-refresh="autoRefresh"
@@ -280,6 +280,11 @@ const handleDeleteResults = async () => {
 </script>
 
 <style scoped>
+main {
+  height: calc(100vh - 64px); /* fallback for older browsers */
+  height: calc(100dvh - 64px); /* modern browsers - dynamic viewport height */
+}
+
 main.scrollbar-hide {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
@@ -291,8 +296,10 @@ main.scrollbar-hide::-webkit-scrollbar {
 
 @media (max-width: 720px) {
   main {
-    height: calc(100vh - 64px) !important;
-    min-height: calc(100vh - 64px);
+    height: calc(100vh - 64px) !important; /* fallback for older browsers */
+    height: calc(100dvh - 64px) !important; /* modern browsers - dynamic viewport height */
+    min-height: calc(100vh - 64px); /* fallback */
+    min-height: calc(100dvh - 64px); /* modern browsers */
     padding-left: 20px;
     padding-right: 20px;
     padding-bottom: 32px;
